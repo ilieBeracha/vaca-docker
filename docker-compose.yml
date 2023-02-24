@@ -1,0 +1,26 @@
+volumes:
+  vaca-db-data:
+  
+services:
+  vaca-server:
+    image: vaca-server
+    ports:
+      - 3010:3010
+    build: ./vacations-server
+
+  vaca-app:
+    image: vaca-app
+    ports:
+       - 80:80
+    build: ./vacations-app
+
+  vaca-db:
+    image: vaca-db
+    ports:
+      - 3307:3306
+    build: ./vacations-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: vacations
+    volumes:
+      - vaca-db-data:/var/lib/mysql
