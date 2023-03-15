@@ -19,8 +19,5 @@ services:
     ports:
       - 3307:3306
     build: ./vacations-db
-    environment:
-      MYSQL_ROOT_PASSWORD: 
-      MYSQL_DATABASE: vacations
     volumes:
       - vaca-db-data:/var/lib/mysql

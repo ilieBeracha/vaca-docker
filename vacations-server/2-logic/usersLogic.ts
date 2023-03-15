@@ -12,8 +12,8 @@ export async function getAllUsers() {
 export async function register(user: UserInterface) {
     const { firstName, lastName, email, password } = user;
     const checkIfEmailExistQuery = `SELECT * FROM users WHERE email = ?`
-    const [emailResults] = await execute<OkPacket>(checkIfEmailExistQuery, [email]);
-    if (emailResults[0].length > 0) {
+    const [emailResults] = await execute<OkPacket>(checkIfEmailExistQuery, [email]);    
+    if (emailResults.length > 0) {
         return 'Email already exist'
     } else {
         const query = 'INSERT INTO users(firstName,lastName,email,password) VALUES(?,?,?,?)'
