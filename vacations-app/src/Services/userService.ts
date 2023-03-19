@@ -1,3 +1,4 @@
+import axios from "axios";
 import { UserInterface } from "../models/UserModel"
 import { BASE_URL } from "./config"
 
@@ -25,6 +26,12 @@ class UserService {
         })
         return results;
     }
+
+    async googleAuth(user:any) {
+        const results = await axios.post(`${BASE_URL}/google/auth`, user);
+        return results;
+    }
+
 }
 
 export const userService = new UserService()

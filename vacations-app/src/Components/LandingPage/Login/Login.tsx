@@ -6,6 +6,7 @@ import { UserInterface } from "../../../models/UserModel";
 import { toastAlerts } from "../../../helpers/toastAlerts";
 import "./Login.css";
 import { userService } from "../../../Services/userService";
+// import GoogleRegister from "./GoogleSignIn/GoogleRegister";
 
 function Login(): JSX.Element {
     const { register, handleSubmit, formState: { errors } } = useForm<UserInterface>();
@@ -44,6 +45,7 @@ function Login(): JSX.Element {
                     <button type="submit">Login</button>
                 </form>
             </div>
+            {/* <GoogleRegister /> */}
         </div>
     );
 }
